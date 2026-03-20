@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第86届奥斯卡金像奖 - 最佳男主角获奖演讲</title>
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E4BC;
+            --dark: #1a1a2e;
+            --dark-light: #16213e;
+            --accent: #e94560;
+            --text: #333;
+            --text-light: #666;
+            --bg: #fafafa;
+            --noun-color: #e74c3c;
+            --adj-color: #27ae60;
+            --verb-color: #3498db;
+            --name-color: #9b59b6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', 'Noto Serif SC', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: var(--text);
+            line-height: 1.8;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(26, 26, 46, 0.8) 100%);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .oscar-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gold) 0%, #B8941F 100%);
+            color: var(--dark);
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        
+        .title {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: rgba(255,255,255,0.7);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .winner-name {
+            font-size: 28px;
+            color: var(--gold);
+            margin-top: 20px;
+            font-style: italic;
+        }
+        
+        .content {
+            background: var(--bg);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid var(--gold);
+        }
+        
+        .intro h3 {
+            color: var(--dark);
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .intro p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+        
+        .legend {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+        
+        .legend-color.noun { background: var(--noun-color); }
+        .legend-color.adj { background: var(--adj-color); }
+        .legend-color.verb { background: var(--verb-color); }
+        .legend-color.name { background: var(--name-color); }
+        
+        .section-title {
+            font-size: 24px;
+            color: var(--dark);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--gold);
+        }
+        
+        .paragraph-block {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #eee;
+        }
+        
+        .para-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            color: var(--gold);
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .english-text {
+            font-size: 17px;
+            line-height: 2.2;
+            color: var(--dark);
+            margin-bottom: 20px;
+            padding: 20px;
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .word {
+            display: inline-block;
+            margin: 0 2px;
+            vertical-align: bottom;
+        }
+        
+        .word-text {
+            display: block;
+            font-size: 17px;
+            line-height: 1.4;
+        }
+        
+        .word-phonetic {
+            display: block;
+            font-size: 11px;
+            color: #888;
+            font-style: italic;
+            line-height: 1.2;
+            margin-top: 2px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .word.noun .word-text { color: var(--noun-color); font-weight: 600; }
+        .word.noun .word-phonetic { color: var(--noun-color); }
+        
+        .word.adj .word-text { color: var(--adj-color); font-weight: 600; }
+        .word.adj .word-phonetic { color: var(--adj-color); }
+        
+        .word.verb .word-text { color: var(--verb-color); font-weight: 600; }
+        .word.verb .word-phonetic { color: var(--verb-color); }
+        
+        .word.name .word-text { color: var(--name-color); font-weight: 600; }
+        .word.name .word-phonetic { color: var(--name-color); }
+        
+        .translation {
+            font-size: 16px;
+            line-height: 2;
+            color: var(--text);
+            padding: 20px;
+            background: linear-gradient(135deg, var(--gold-light) 0%, #fff8e7 100%);
+            border-radius: 10px;
+            border-right: 4px solid var(--gold);
+        }
+        
+        .footer-quote {
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+        }
+        
+        .quote-text {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .quote-author {
+            color: var(--gold);
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .title { font-size: 28px; }
+            .content { padding: 25px; }
+            .paragraph-block { padding: 20px; }
+            .english-text { font-size: 15px; }
+            .word-text { font-size: 15px; }
+            .word-phonetic { font-size: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="oscar-badge">🏆 第86届奥斯卡金像奖</div>
+            <h1 class="title">最佳男主角获奖演讲</h1>
+            <p class="subtitle">86th Academy Awards · Best Actor · 2014</p>
+            <div class="winner-name">Matthew McConaughey</div>
+        </header>
+        
+        <div class="content">
+            <div class="intro">
+                <h3>📖 关于本文</h3>
+                <p>本文是马修·麦康纳（Matthew McConaughey）在2014年第86届奥斯卡金像奖上获得最佳男主角奖时的获奖演讲。本文提供英文原文（名词、形容词、动词、人名地名带音标）以及中文翻译。</p>
+            </div>
+            
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color noun"></div>
+                    <span>名词 (Noun)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color adj"></div>
+                    <span>形容词 (Adj)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color verb"></div>
+                    <span>动词 (Verb)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color name"></div>
+                    <span>人名/地名 (Name)</span>
+                </div>
+            </div>
+            
+            <div class="speech-section">
+                <h2 class="section-title">获奖演讲全文</h2>
+                
+                <div class="paragraph-block">
+                    <div class="para-number">1</div>
+                    <div class="english-text">
+                        <span class="word verb"><span class="word-text">Thank</span><span class="word-phonetic">/θæŋk/</span></span> you, <span class="word verb"><span class="word-text">thank</span><span class="word-phonetic">/θæŋk/</span></span> you, <span class="word verb"><span class="word-text">thank</span><span class="word-phonetic">/θæŋk/</span></span> you, <span class="word verb"><span class="word-text">thank</span><span class="word-phonetic">/θæŋk/</span></span> you, <span class="word verb"><span class="word-text">thank</span><span class="word-phonetic">/θæŋk/</span></span> you to the <span class="="word noun"><span class="word-text">Academy</span><span class="word-phonetic">/əˈkædəmi/</span></span> for this, all 6,000 <span class="word noun"><span class="word-text">members</span><span class="word-phonetic">/ˈmembərz/</span></span>. <span class="word verb"><span class="word-text">Thank</span><span class="word-phonetic">/θæŋk/</span></span> you to the other <span class="word noun"><span class="word-text">nominees</span><span class="word-phonetic">/ˈnɑːmɪniːz/</span></span>. All these <span class="word noun"><span class="word-text">performances</span><span class="word-phonetic">/pərˈfɔːrmənsɪz/</span></span> were <span class="word adj"><span class="word-text">impeccable</span><span class="word-phonetic">/ɪmˈpekəbl/</span></span> in my <span class="word noun"><span class="word-text">opinion</span><span class="word-phonetic">/əˈpɪnjən/</span></span>. I didn't <span class="word verb"><span class="word-text">see</span><span class="word-phonetic">/siː/</span></span> a <span class="word adj"><span class="word-text">false</span><span class="word-phonetic">/fɔːls/</span></span> <span class="word noun"><span class="word-text">note</span><span class="word-phonetic">/noʊt/</span></span> anywhere. I <span class="word verb"><span class="word-text">want</span><span class="word-phonetic">/wɑːnt/</span></span> to <span class="word verb"><span class="word-text">thank</span><span class="word-phonetic">/θæŋk/</span></span> <span class="word name"><span class="word-text">Jean-Marc Vallée</span><span class="word-phonetic">/ʒɑːn-mɑːrk væˈleɪ/</span></span>, our <span class="word noun"><span class="word-text">director</span><span class="word-phonetic">/dɪˈrektər/</span></span>. <span class="word verb"><span class="word-text">Want</span><span class="word-phonetic">/wɑːnt/</span></span> to <span class="word verb"><span class="word-text">thank</span><span class="word-phonetic">/θæŋk/</span></span> <span class="word name"><span class="word-text">Jared Leto</span><span class="word-phonetic">/ˈdʒærəd ˈletoʊ/</span></span>, <span class="word name"><span class="word-text">Jennifer Garner</span><span class="word-phonetic">/ˈdʒenɪfər ˈɡɑːrnər/</span></span>, who I <span class="word verb"><span class="word-text">worked</span><span class="word-phonetic">/wɜːrkt/</span></span> with <span class="word adj"><span class="word-text">daily</span><span class="word-phonetic">/ˈdeɪli/</span></span>.
+                    </div>
+                    <div class="translation">
+                        谢谢，谢谢，谢谢，感谢学院颁发的这个奖，以及所有6000名成员。感谢其他的提名者，在我看来，所有这些表演都是无可挑剔的，我看不到任何的瑕疵。感谢让·马克·瓦雷，我们的导演。感谢与我每天一起工作的杰拉德·莱托，詹妮弗·加纳。
+                    </div>
+                </div>
+                
+                <div class="paragraph-block">
+                    <div class="para-number">2</div>
+                    <div class="english-text">
+                        There's a <span class="word adj"><span class="word-text">few</span><span class="word-phonetic">/fjuː/</span></span> <span class="word noun"><span class="word-text">things</span><span class="word-phonetic">/θɪŋz/</span></span>, about <span class="word adj"><span class="word-text">three</span><span class="word-phonetic">/θriː/</span></span> <span class="word noun"><span class="word-text">things</span><span class="word-phonetic">/θɪŋz/</span></span> to my <span class="word noun"><span class="word-text">account</span><span class="word-phonetic">/əˈkaʊnt/</span></span> that I <span class="word verb"><span class="word-text">need</span><span class="word-phonetic">/niːd/</span></span> <span class="word adj"><span class="word-text">each</span><span class="word-phonetic">/iːtʃ/</span></span> <span class="word noun"><span class="word-text">day</span><span class="word-phonetic">/deɪ/</span></span>. <span class="word adj"><span class="word-text">One</span><span class="word-phonetic">/wʌn/</span></span> of them is <span class="="word noun"><span class="word-text">something</span><span class="word-phonetic">/ˈsʌmθɪŋ/</span></span> to <span class="word verb"><span class="word-text">look</span><span class="word-phonetic">/lʊk/</span></span> up to, <span class="word adj"><span class="word-text">another</span><span class="word-phonetic">/əˈnʌðər/</span></span> is <span class="word noun"><span class="word-text">something</span><span class="word-phonetic">/ˈsʌmθɪŋ/</span></span> to <span class="word verb"><span class="word-text">look</span><span class="word-phonetic">/lʊk/</span></span> <span class="word adj"><span class="word-text">forward</span><span class="word-phonetic">/ˈfɔːrwərd/</span></span> to, and <span class="word adj"><span class="word-text">another</span><span class="word-phonetic">/əˈnʌðər/</span></span> is <span class="word noun"><span class="word-text">someone</span><span class="word-phonetic">/ˈsʌmwʌn/</span></span> to <span class="word verb"><span class="word-text">chase</span><span class="word-phonetic">/tʃeɪs/</span></span>.
+                    </div>
+                    <div class="translation">
+                        于我个人而言，有三件事是必不可少的，其一是有所敬仰，其二是有所牵挂，其三是有所追逐。
+                    </div>
+                </div>
+                
+                <div class="paragraph-block">
+                    <div class="para-number">3</div>
+                    <div class="english-text">
+                        <span class="word adj"><span class="word-text">Now</span><span class="word-phonetic">/naʊ/</span></span>, <span class="word adj"><span class="word-text">first</span><span class="word-phonetic">/fɜːrst/</span></span> of all, I <span class="word verb"><span class="word-text">want</span><span class="word-phonetic">/wɑːnt/</span></span> to <span class="word verb"><span class="word-text">thank</span><span class="word-phonetic">/θæŋk/</span></span> <span class="word name"><span class="word-text">God</span><span class="word-phonetic">/ɡɑːd/</span></span>. <span class="word noun"><span class="word-text">Cause</span><span class="word-phonetic">/kɔːz/</span></span> that's who I <span class="word verb"><span class="word-text">look</span><span class="word-phonetic">/lʊk/</span></span> up to. He has <span class="word verb"><span class="word-text">graced</span><span class="word-phonetic">/ɡreɪst/</span></span> my <span class="word noun"><span class="word-text">life</span><span class="word-phonetic">/laɪf/</span></span> with <span class="word noun"><span class="word-text">opportunities</span><span class="word-phonetic">/ˌɑːpərˈtuːnətiz/</span></span> that I <span class="word verb"><span class="word-text">know</span><span class="word-phonetic">/noʊ/</span></span> are not of my <span class="word noun"><span class="word-text">hand</span><span class="word-phonetic">/hænd/</span></span> or any other <span class="word adj"><span class="word-text">human</span><span class="word-phonetic">/ˈhjuːmən/</span></span> <span class="word noun"><span class="word-text">hand</span><span class="word-phonetic">/hænd/</span></span>. He has <span class="word verb"><span class="word-text">shown</span><span class="word-phonetic">/ʃoʊn/</span></span> me that it's a <span class="word adj"><span class="word-text">scientific</span><span class="word-phonetic">/ˌsaɪənˈtɪfɪk/</span></span> <span class="word noun"><span class="word-text">fact</span><span class="word-phonetic">/fækt/</span></span> that <span class="word noun"><span class="word-text">gratitude</span><span class="word-phonetic">/ˈɡrætɪtuːd/</span></span> <span class="word verb"><span class="word-text">reciprocates</span><span class="word-phonetic">/rɪˈsɪprəkeɪts/</span></span>. In the <span class="word noun"><span class="word-text">words</span><span class="word-phonetic">/wɜːrdz/</span></span> of the <span class="word adj"><span class="word-text">late</span><span class="word-phonetic">/leɪt/</span></span> <span class="word name"><span class="word-text">Charlie Laughton</span><span class="word-phonetic">/ˈtʃɑːrli ˈlɔːtən/</span></span>, who <span class="word verb"><span class="word-text">said</span><span class="word-phonetic">/seɪd/</span></span>, 'When you've <span class="word verb"><span class="word-text">got</span><span class="word-phonetic">/ɡɑːt/</span></span> <span class="word name"><span class="word-text">God</span><span class="word-phonetic">/ɡɑːd/</span></span>, you <span class="word verb"><span class="word-text">got</span><span class="word-phonetic">/ɡɑːt/</span></span> a <span class="word noun"><span class="word-text">friend</span><span class="word-phonetic">/frend/</span></span>. And that <span class="word noun"><span class="word-text">friend</span><span class="word-phonetic">/frend/</span></span> is you.'
+                    </div>
+                    <div class="translation">
+                        现在，首先我要感谢上帝，因为那正是我所敬仰之人，他赐予了我珍贵的机会，本是我或任何人不该拥有的。他教会了我一个科学事实：感恩终有回报。正如已逝去的查理·劳顿所说："当你与上帝同行，你就有了一位朋友，而这位朋友就是你。"
+                    </div>
+                </div>
+                
+                <div class="paragraph-block">
+                    <div class="para-number">4</div>
+                    <div class="english-text">
+                        To my <span class="word noun"><span class="word-text">family</span><span class="word-phonetic">/ˈfæməli/</span></span>, that who and what I <span class="word verb"><span class="word-text">look</span><span class="word-phonetic">/lʊk/</span></span> <span class="word adj"><span class="word-text">forward</span><span class="word-phonetic">/ˈfɔːrwərd/</span></span> to. To my <span class="word noun"><span class="word-text">father</span><span class="word-phonetic">/ˈfɑːðər/</span></span> who, I <span class="word verb"><span class="word-text">know</span><span class="word-phonetic">/noʊ/</span></span> he's up there <span class="word adj"><span class="word-text">right</span><span class="word-phonetic">/raɪt/</span></span> <span class="word adj"><span class="word-text">now</span><span class="word-phonetic">/naʊ/</span></span> with a <span class="word adj"><span class="word-text">big</span><span class="word-phonetic">/bɪɡ/</span></span> <span class="word noun"><span class="word-text">pot</span><span class="word-phonetic">/pɑːt/</span></span> of <span class="word noun"><span class="word-text">gumbo</span><span class="word-phonetic">/ˈɡʌmboʊ/</span></span>. He's <span class="word verb"><span class="word-text">got</span><span class="word-phonetic">/ɡɑːt/</span></span> a <span class="word noun"><span class="word-text">lemon</span><span class="word-phonetic">/ˈlemən/</span></span> <span class="word noun"><span class="word-text">meringue</span><span class="word-phonetic">/məˈræŋ/</span></span> <span class="word noun"><span class="word-text">pie</span><span class="word-phonetic">/paɪ/</span></span> over there. He's <span class="word adj"><span class="word-text">probably</span><span class="word-phonetic">/ˈprɑːbəbli/</span></span> in his <span class="word noun"><span class="word-text">underwear</span><span class="word-phonetic">/ˈʌndərwer/</span></span>. And he's <span class="word verb"><span class="word-text">got</span><span class="word-phonetic">/ɡɑːt/</span></span> a <span class="word adj"><span class="word-text">cold</span><span class="word-phonetic">/koʊld/</span></span> <span class="word noun"><span class="word-text">can</span><span class="word-phonetic">/kæn/</span></span> of <span class="word name"><span class="word-text">Miller Lite</span><span class="word-phonetic">/ˈmɪlər laɪt/</span></span> and he's <span class="word verb"><span class="word-text">dancing</span><span class="word-phonetic">/ˈdænsɪŋ/</span></span> <span class="word adj"><span class="word-text">right</span><span class="word-phonetic">/raɪt/</span></span> <span class="word adj"><span class="word-text">now</span><span class="word-phonetic">/naʊ/</span></span>.
+                    </div>
+                    <div class="translation">
+                        对于我的家人来说，他们就是我所牵挂的人。我父亲，我知道他现在就在天堂，配着一大锅秋葵汤，旁边有个柠檬蛋白酥皮饼，他可能只穿了条短裤。他还拿着一罐米勒冰啤酒，正在那儿跳舞。
+                    </div>
+                </div>
+                
+                <div class="paragraph-block">
+                    <div class="para-number">5</div>
+                    <div class="english-text">
+                        To you, <span class="word noun"><span class="word-text">Dad</span><span class="word-phonetic">/dæd/</span></span>, you <span class="word verb"><span class="word-text">taught</span><span class="word-phonetic">/tɔːt/</span></span> me what it <span class="word verb"><span class="word-text">means</span><span class="word-phonetic">/miːnz/</span></span> to <span class="word verb"><span class="word-text">be</span><span class="word-phonetic">/biː/</span></span> a <span class="word noun"><span class="word-text">man</span><span class="word-phonetic">/mæn/</span></span>. To my <span class="word noun"><span class="word-text">mother</span><span class="word-phonetic">/ˈmʌðər/</span></span> who's here <span class="word noun"><span class="word-text">tonight</span><span class="word-phonetic">/təˈnaɪt/</span></span>, who <span class="word verb"><span class="word-text">taught</span><span class="word-phonetic">/tɔːt/</span></span> me and my <span class="word adj"><span class="word-text">two</span><span class="word-phonetic">/tuː/</span></span> <span class="word adj"><span class="word-text">older</span><span class="word-phonetic">/ˈoʊldər/</span></span> <span class="word noun"><span class="word-text">brothers</span><span class="word-phonetic">/ˈbrʌðərz/</span></span>' <span class="word verb"><span class="word-text">demanded</span><span class="word-phonetic">/dɪˈmændɪd/</span></span> that we <span class="word verb"><span class="word-text">respect</span><span class="word-phonetic">/rɪˈspekt/</span></span> ourselves. And what we in <span class="word noun"><span class="word-text">turn</span><span class="word-phonetic">/tɜːrn/</span></span> <span class="word verb"><span class="word-text">learned</span><span class="word-phonetic">/lɜːrnd/</span></span> was that we were then <span class="word adj"><span class="word-text">better</span><span class="word-phonetic">/ˈbetər/</span></span> <span class="word adj"><span class="word-text">able</span><span class="word-phonetic">/ˈeɪbl/</span></span> to <span class="word verb"><span class="word-text">respect</span><span class="word-phonetic">/rɪˈspekt/</span></span> <span class="word noun"><span class="word-text">others</span><span class="word-phonetic">/ˈʌðərz/</span></span>. <span class="word verb"><span class="word-text">Thank</span><span class="word-phonetic">/θæŋk/</span></span> you for that, <span class="word noun"><span class="word-text">Mama</span><span class="word-phonetic">/ˈmɑːmə/</span></span>. To my <span class="word noun"><span class="word-text">wife</span><span class="word-phonetic">/waɪf/</span></span>, <span class="word name"><span class="word-text">Camila</span><span class="word-phonetic">/kəˈmiːlə/</span></span>, and my <span class="word noun"><span class="word-text">kids</span><span class="word-phonetic">/kɪdz/</span></span> <span class="word name"><span class="word-text">Levi</span><span class="word-phonetic">/ˈliːvaɪ/</span></span>, <span class="word name"><span class="word-text">Vida</span><span class="word-phonetic">/ˈviːdə/</span></span> and <span class="word name"><span class="word-text">Mr. Stone</span><span class="word-phonetic">/ˈmɪstər stoʊn/</span></span>, the <span class="word noun"><span class="word-text">courage</span><span class="word-phonetic">/ˈkɜːrɪdʒ/</span></span> and <span class="word noun"><span class="word-text">significance</span><span class="word-phonetic">/sɪɡˈnɪfɪkəns/</span></span> you <span class="word verb"><span class="word-text">give</span><span class="word-phonetic">/ɡɪv/</span></span> me <span class="word adj"><span class="word-text">every</span><span class="word-phonetic">/ˈevri/</span></span> <span class="word noun"><span class="word-text">day</span><span class="word-phonetic">/deɪ/</span></span> I <span class="word verb"><span class="word-text">go</span><span class="word-
